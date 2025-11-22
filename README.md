@@ -1,7 +1,5 @@
 # Mirage
 
-## Breve introdução
-
 MirageJS é uma biblioteca que permite simular uma API diretamente no frontend, criando um ambiente de desenvolvimento totalmente independente do backend.
 
 Com ele, vode pode:
