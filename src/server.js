@@ -1,7 +1,24 @@
-import { belongsTo, createServer, hasMany, Model, RestSerializer } from "miragejs"
+import { belongsTo, createServer, Factory, hasMany, Model, RestSerializer, trait } from "miragejs"
 
 export default function () {
     createServer({
+        factories: {
+            list: Factory.extend({
+                name(i) {
+                    return `List ${i}`
+                },
+                winthReminders: trait({
+                    afterCreate(list, server) {
+                        server.createList('reminder', 5, { list })
+                    }
+                })
+            }),
+            reminder: Factory.extend({
+                text(i) {
+                    return `Reminder ${i}`
+                }
+            })
+        },
         serializers: {
             reminder: RestSerializer.extend({
                 include: ["list"],
@@ -13,22 +30,24 @@ export default function () {
             //uma lista pode ter vários lembretes
             reminders: hasMany(),
         }),
-
         reminder: Model.extend({
             list: belongsTo(),
         }),
         },
         // hook para inicializar o mirage com alguns dados iniciais
         seeds(server) {
-            server.create("reminder", { text: "Walk the dog"})
-            server.create("reminder", { text: "Take out the trash"})
-            server.create("reminder", { text: "Work out"})
+            server.create("reminder", { text: "Walk the dog" });
+            server.create("reminder", { text: "Take out the trash" });
+            server.create("reminder", { text: "Work out" });
 
-            const homeList = server.create("list", { name: "Home" });
-            server.create("reminder", { list: homeList, text: "Do taxes" });
-
-            const workList = server.create("list", { name: "Work" });
-            server.create("reminder", { list: workList, text: "Visit bank" });
+            server.create("list", {
+                name: "Home",
+                reminders: [server.create("reminder", { text: "Do taxes" })],
+            });
+            server.create("list", {
+                name: "Work",
+                reminders: [server.create("reminder", { text: "Visit bank" })],
+            });
         },
         // Definindo as rotas da nossa API simulada
         routes() { 
