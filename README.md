@@ -1,8 +1,21 @@
 # Mirage
 
+## Breve introdução
+
+MirageJS é uma biblioteca que permite simular uma API diretamente no frontend, criando um ambiente de desenvolvimento totalmente independente do backend.
+
+Com ele, vode pode:
+
+- Simular rotas HTTP (GET, POST, PUT, DELETE…)
+- Criar modelos, seeds e bancos de dados mockados
+- Interceptar requisições feitas pelo frontend
+- Testar fluxos completos sem depender de servidor
+- Desenvolver mais rápido enquanto a API real não está pronta
+
 Este projeto é o aplicativo Reminders utilizado no tutorial oficial do MirageJS.
 
-Link para o tutorial: [miragejs.com/tutorial](https://miragejs.com/tutorial)
+- Documentação: [miragejs.com/docs/getting-started/introduction/](https://miragejs.com/docs/getting-started/introduction/)
+- Link para o tutorial: [miragejs.com/tutorial](https://miragejs.com/tutorial)
 
 # Pré-requisitos
 
