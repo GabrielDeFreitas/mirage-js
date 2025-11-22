@@ -1,9 +1,15 @@
-import { belongsTo, createServer, hasMany, Model } from "miragejs"
+import { belongsTo, createServer, hasMany, Model, RestSerializer } from "miragejs"
 
 export default function () {
     createServer({
+        serializers: {
+            reminder: RestSerializer.extend({
+                include: ["list"],
+                embed: true,
+            })
+        },
         models: {
-        list: Model.extend({
+            list: Model.extend({
             //uma lista pode ter vários lembretes
             reminders: hasMany(),
         }),
