@@ -1,7 +1,9 @@
 import { belongsTo, createServer, Factory, hasMany, Model, RestSerializer, trait } from "miragejs"
 
 export default function () {
-    createServer({
+    return createServer({
+        environment: "test",
+
         factories: {
             list: Factory.extend({
                 name(i) {
