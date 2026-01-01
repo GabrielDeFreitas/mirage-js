@@ -15,7 +15,7 @@ Este projeto é o aplicativo Reminders utilizado no tutorial oficial do MirageJS
 - Documentação: [miragejs.com/docs/getting-started/introduction/](https://miragejs.com/docs/getting-started/introduction/)
 - Link para o tutorial: [miragejs.com/tutorial](https://miragejs.com/tutorial)
 
-# Pré-requisitos
+## Pré-requisitos
 
 Este projeto é antigo e utiliza:
 
@@ -24,7 +24,7 @@ Este projeto é antigo e utiliza:
 
 Por isso, não é compatível com versões recentes do Node (18+ até 24).
 
-# Instalação e Execução
+## Instalação e Execução
 
 Substitua `pnpm` pelo gerenciador de pacotes de sua preferência (`npm` ou `yarn`).
 
